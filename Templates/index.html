@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fish Weight Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            margin: 0 auto;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Fish Weight Predictor</h2>
+    <form action="/predict" method="post">
+        <label>Species (0-6):</label>
+        <input type="number" name="species" required><br>
+
+        <label>Length1:</label>
+        <input type="number" step="0.01" name="length1" required><br>
+
+        <label>Length2:</label>
+        <input type="number" step="0.01" name="length2" required><br>
+
+        <label>Length3:</label>
+        <input type="number" step="0.01" name="length3" required><br>
+
+        <label>Height:</label>
+        <input type="number" step="0.01" name="height" required><br>
+
+        <label>Width:</label>
+        <input type="number" step="0.01" name="width" required><br>
+
+        <button type="submit">Predict Weight</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3 style="color: green;">{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
